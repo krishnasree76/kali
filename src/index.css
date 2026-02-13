@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 6%;
+    --foreground: 40 20% 90%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 40 20% 90%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 20% 90%;
+
+    --primary: 40 60% 50%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 20% 85%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 40 70% 45%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 15% 18%;
+    --input: 0 0% 15%;
+    --ring: 40 60% 50%;
+
+    --radius: 0.75rem;
+
+    --gold: 40 60% 50%;
+    --gold-light: 40 70% 65%;
+    --gold-dark: 40 50% 35%;
+    --charcoal: 0 0% 10%;
+    --charcoal-light: 0 0% 14%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 40 60% 50%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 40 15% 18%;
+    --sidebar-ring: 40 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(40 70% 65%), hsl(40 60% 50%), hsl(40 70% 65%));
+  }
+
+  .bg-gold-gradient {
+    background-image: linear-gradient(135deg, hsl(40 60% 50%), hsl(40 70% 60%));
+  }
+
+  .bg-glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 30px hsl(40 60% 50% / 0.15), 0 0 60px hsl(40 60% 50% / 0.05);
+  }
+
+  .gold-glow-hover:hover {
+    box-shadow: 0 0 40px hsl(40 60% 50% / 0.25), 0 0 80px hsl(40 60% 50% / 0.1);
+  }
+
+  .gold-border-top {
+    border-top: 1px solid hsl(40 60% 50% / 0.3);
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 6%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(40 60% 50% / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(40 60% 50% / 0.5);
+}
