@@ -5,7 +5,7 @@ import { useState } from "react";
 const contactInfo = [
   { icon: Phone, label: "Phone", value: "+91 9133614177", href: "tel:+919133614177" },
   { icon: Mail, label: "Email", value: "kalivfx77@gmail.com", href: "mailto:kalivfx77@gmail.com" },
-  { icon: MapPin, label: "Address", value: "Choppella, Sai Baba Temple, Kali Edits and VFX Office" },
+  { icon: MapPin, label: "Address", value: "Choppella, Sai Baba Temple, Kali Edits and VFX Office,533234" },
   { icon: Clock, label: "Hours", value: "Mon–Sat: 9:30 AM – 9 PM\nSunday: Office Leave" },
 ];
 
