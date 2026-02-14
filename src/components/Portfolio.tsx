@@ -55,7 +55,6 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6">
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +72,6 @@ const Portfolio = () => {
 
         {portfolioData.map((section, index) => (
           <div key={index} className="mb-20">
-
             <h3 className="font-display text-2xl md:text-3xl text-primary mb-10 border-l-4 border-primary pl-4">
               {section.category}
             </h3>
@@ -89,16 +87,15 @@ const Portfolio = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.1 }}
-                    className="relative group overflow-hidden rounded-lg aspect-video bg-secondary"
+                    className="relative group rounded-lg aspect-video bg-secondary overflow-hidden"
                   >
                     {item.videoId ? (
                       isPlaying ? (
                         <iframe
-                          src={`https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&fs=1`}
+                          src={`https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&controls=1`}
                           title={item.title}
-                          className="absolute inset-0 w-full h-full"
-                          frameBorder="0"
-                          allow="autoplay; encrypted-media"
+                          className="absolute inset-0 w-full h-full z-50"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                           allowFullScreen
                         />
                       ) : (
@@ -110,7 +107,7 @@ const Portfolio = () => {
                           />
 
                           <div
-                            className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer"
+                            className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer z-10"
                             onClick={() => setActiveVideo(item.videoId)}
                           >
                             <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center">
@@ -125,20 +122,21 @@ const Portfolio = () => {
                       </div>
                     )}
 
-                    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-                      <p className="text-primary text-xs uppercase tracking-widest mb-1">
-                        {item.sub}
-                      </p>
-                      <h4 className="text-white text-lg">{item.title}</h4>
-                    </div>
+                    {/* Overlay info - we hide this when playing to prevent blocking clicks */}
+                    {!isPlaying && (
+                      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent z-20 pointer-events-none">
+                        <p className="text-primary text-xs uppercase tracking-widest mb-1">
+                          {item.sub}
+                        </p>
+                        <h4 className="text-white text-lg">{item.title}</h4>
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}
             </div>
-
           </div>
         ))}
-
       </div>
     </section>
   );
