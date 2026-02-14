@@ -1,16 +1,24 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroLogo from "@/assets/image.png";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+    >
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/70" />
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/80" />
       </div>
 
-      {/* Floating gold particles */}
+      {/* Floating Primary Particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
@@ -31,21 +39,31 @@ const Hero = () => {
         />
       ))}
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Logo animation */}
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+
+        {/* Animated Logo */}
         <motion.div
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="mb-8"
+          initial={{ scale: 0.6, opacity: 0, y: 50 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
+          className="mb-10"
         >
-          <motion.h1
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-gold-gradient leading-tight"
-            animate={{ textShadow: ["0 0 20px hsl(40 60% 50% / 0)", "0 0 40px hsl(40 60% 50% / 0.3)", "0 0 20px hsl(40 60% 50% / 0)"] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Kali Edits & VFX
-          </motion.h1>
+          <motion.img
+            src={heroLogo}
+            alt="Kali Edits & VFX"
+            className="mx-auto w-[280px] md:w-[400px] lg:w-[520px]"
+            animate={{
+              filter: [
+                "drop-shadow(0 0 0px rgba(0,0,0,0))",
+                "drop-shadow(0 0 30px rgba(212,175,55,0.4))",
+                "drop-shadow(0 0 0px rgba(0,0,0,0))",
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+            }}
+          />
         </motion.div>
 
         {/* Headline */}
@@ -54,10 +72,12 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <h2 className="font-display text-2xl md:text-4xl text-foreground leading-relaxed mb-4">
+          <h2 className="text-2xl md:text-4xl text-foreground leading-relaxed mb-4 font-semibold">
             We Don't Edit Videos.
             <br />
-            <span className="text-gold-gradient italic">We Craft Cinematic Legacies.</span>
+            <span className="text-gold-gradient italic">
+              We Craft Cinematic Legacies.
+            </span>
           </h2>
         </motion.div>
 
@@ -66,9 +86,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="text-muted-foreground text-sm md:text-base tracking-[0.25em] uppercase mt-6 mb-10 font-body"
+          className="text-muted-foreground text-sm md:text-base tracking-[0.25em] uppercase mt-6 mb-10"
         >
-          Wedding &nbsp;|&nbsp; Pre-Wedding &nbsp;|&nbsp; Haldi &nbsp;|&nbsp; Half Saree &nbsp;|&nbsp; Birthday &nbsp;|&nbsp; Pre Birthday
+          Wedding | Pre-Wedding | Haldi | Half Saree | Birthday | Pre Birthday
         </motion.p>
 
         {/* CTA Buttons */}
@@ -80,20 +100,21 @@ const Hero = () => {
         >
           <a
             href="#portfolio"
-            className="px-8 py-3 bg-gold-gradient text-primary-foreground font-body font-semibold tracking-wider uppercase text-sm rounded-sm hover:opacity-90 transition-opacity gold-glow"
+            className="px-8 py-3 bg-gold-gradient text-primary-foreground font-semibold tracking-wider uppercase text-sm rounded-sm hover:opacity-90 transition-opacity gold-glow"
           >
             View Our Work
           </a>
+
           <a
             href="#contact"
-            className="px-8 py-3 border border-primary/50 text-primary font-body font-semibold tracking-wider uppercase text-sm rounded-sm hover:bg-primary/10 transition-colors"
+            className="px-8 py-3 border border-primary/50 text-primary font-semibold tracking-wider uppercase text-sm rounded-sm hover:bg-primary/10 transition-colors"
           >
             Book Your Shoot
           </a>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
