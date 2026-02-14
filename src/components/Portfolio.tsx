@@ -6,101 +6,45 @@ const portfolioData = [
   {
     category: "Wedding",
     items: [
-      {
-        title: "Wedding Video 1",
-        sub: "Wedding",
-        videoId: "Z82H4gLMOlg",
-      },
-      {
-        title: "Wedding Video 2",
-        sub: "Wedding",
-        videoId: "udqoaFpyAOY",
-      },
+      { title: "Wedding Video 1", sub: "Wedding", videoId: "Z82H4gLMOlg" },
+      { title: "Wedding Video 2", sub: "Wedding", videoId: "udqoaFpyAOY" },
     ],
   },
   {
     category: "Pre Wedding",
     items: [
-      {
-        title: "Pre Wedding Video",
-        sub: "Pre Wedding",
-        videoId: "YmGeIHgb7K4",
-      },
-      {
-        title: "Save The Dates",
-        sub: "Coming Soon",
-        videoId: null,
-      },
+      { title: "Pre Wedding Video", sub: "Pre Wedding", videoId: "YmGeIHgb7K4" },
+      { title: "Save The Dates", sub: "Coming Soon", videoId: null },
     ],
   },
   {
     category: "Wedding Haldis",
     items: [
-      {
-        title: "Wedding Groom Haldi",
-        sub: "Groom Haldi",
-        videoId: "YmGeIHgb7K4",
-      },
-      {
-        title: "Bride Haldi",
-        sub: "Bride Haldi",
-        videoId: null,
-      },
-      {
-        title: "Couple Haldi",
-        sub: "Couple Haldi",
-        videoId: null,
-      },
+      { title: "Wedding Groom Haldi", sub: "Groom Haldi", videoId: "YmGeIHgb7K4" },
+      { title: "Bride Haldi", sub: "Bride Haldi", videoId: null },
+      { title: "Couple Haldi", sub: "Couple Haldi", videoId: null },
     ],
   },
   {
     category: "Half Saree",
     items: [
-      {
-        title: "Half Saree Haldi",
-        sub: "Half Saree Haldi",
-        videoId: "i7SRRULgwtU",
-      },
-      {
-        title: "Half Saree Song Shoot",
-        sub: "Coming Soon",
-        videoId: null,
-      },
-      {
-        title: "Half Saree Functions",
-        sub: "Coming Soon",
-        videoId: null,
-      },
+      { title: "Half Saree Haldi", sub: "Half Saree Haldi", videoId: "i7SRRULgwtU" },
+      { title: "Half Saree Song Shoot", sub: "Coming Soon", videoId: null },
+      { title: "Half Saree Functions", sub: "Coming Soon", videoId: null },
     ],
   },
   {
     category: "Birthday",
     items: [
-      {
-        title: "Birthday Video",
-        sub: "Birthday",
-        videoId: "PNhRGh3TPlA",
-      },
-      {
-        title: "Pre Birthday",
-        sub: "Coming Soon",
-        videoId: null,
-      },
+      { title: "Birthday Video", sub: "Birthday", videoId: "PNhRGh3TPlA" },
+      { title: "Pre Birthday", sub: "Coming Soon", videoId: null },
     ],
   },
   {
     category: "Engagement",
     items: [
-      {
-        title: "Engagement Video 1",
-        sub: "Engagement",
-        videoId: "Hfzk3JZEhOk",
-      },
-      {
-        title: "Engagement Video 2",
-        sub: "Engagement",
-        videoId: "wQoc2rZq_Pk",
-      },
+      { title: "Engagement Video 1", sub: "Engagement", videoId: "Hfzk3JZEhOk" },
+      { title: "Engagement Video 2", sub: "Engagement", videoId: "wQoc2rZq_Pk" },
     ],
   },
 ];
@@ -135,66 +79,65 @@ const Portfolio = () => {
             </h3>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {section.items.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="relative group overflow-hidden rounded-lg aspect-video bg-secondary cursor-pointer"
-                  onClick={() => item.videoId && setActiveVideo(item.videoId)}
-                >
-                  {item.videoId ? (
-                    <>
-                      <img
-                        src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
-                        alt={item.title}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500 flex items-center justify-center">
-                        <div className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center">
-                          <Play className="w-5 h-5 text-white ml-1" />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
-                      Coming Soon
-                    </div>
-                  )}
+              {section.items.map((item, i) => {
+                const isPlaying = activeVideo === item.videoId;
 
-                  <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-                    <p className="text-primary text-xs uppercase tracking-widest mb-1">
-                      {item.sub}
-                    </p>
-                    <h4 className="text-white text-lg">{item.title}</h4>
-                  </div>
-                </motion.div>
-              ))}
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    className="relative group overflow-hidden rounded-lg aspect-video bg-secondary"
+                  >
+                    {item.videoId ? (
+                      isPlaying ? (
+                        <iframe
+                          src={`https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&fs=1`}
+                          title={item.title}
+                          className="absolute inset-0 w-full h-full"
+                          frameBorder="0"
+                          allow="autoplay; encrypted-media"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <>
+                          <img
+                            src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
+                            alt={item.title}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+
+                          <div
+                            className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer"
+                            onClick={() => setActiveVideo(item.videoId)}
+                          >
+                            <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center">
+                              <Play className="w-6 h-6 text-white ml-1" />
+                            </div>
+                          </div>
+                        </>
+                      )
+                    ) : (
+                      <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
+                        Coming Soon
+                      </div>
+                    )}
+
+                    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
+                      <p className="text-primary text-xs uppercase tracking-widest mb-1">
+                        {item.sub}
+                      </p>
+                      <h4 className="text-white text-lg">{item.title}</h4>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
+
           </div>
         ))}
-
-        {activeVideo && (
-          <div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-            onClick={() => setActiveVideo(null)}
-          >
-            <div className="w-[90%] md:w-[70%] aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube-nocookie.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                className="rounded-lg"
-              />
-            </div>
-          </div>
-        )}
 
       </div>
     </section>
