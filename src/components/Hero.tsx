@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import heroLogo from "@/assets/image.png";
+import heroLogo from "@/assets/Gemini_Generated_Image_iz1x4ciz1x4ciz1x-removebg-preview.png";
 
 const Hero = () => {
   return (
@@ -106,10 +106,11 @@ const Hero = () => {
           </a>
 
           <a
-            href="#contact"
+            href="#slot-booking"
+
             className="px-8 py-3 border border-primary/50 text-primary font-semibold tracking-wider uppercase text-sm rounded-sm hover:bg-primary/10 transition-colors"
           >
-            Book Your Shoot
+            Book Your Work
           </a>
         </motion.div>
       </div>
