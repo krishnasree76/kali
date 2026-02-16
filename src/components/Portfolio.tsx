@@ -11,12 +11,13 @@ const portfolioData = [
     ],
   },
   {
-    category: "Pre Wedding",
-    items: [
-      { title: "Pre Wedding Video", sub: "Pre Wedding", videoId: "YmGeIHgb7K4" },
-      { title: "Save The Dates", sub: "Coming Soon", videoId: null },
-    ],
-  },
+  category: "Pre Wedding",
+  items: [
+    { title: "Save The Date", sub: "Pre Wedding", videoId: "qnfBX6GnOmA" },
+    { title: "Pre Wedding Work", sub: "Pre Wedding", videoId: "2-GkaXVRUGM" },
+  ],
+},
+
   {
     category: "Wedding Haldis",
     items: [
