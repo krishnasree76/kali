@@ -122,3 +122,6 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(40 60% 50% / 0.5);
 }
+html, body {
+  overflow-x: hidden;
+}
