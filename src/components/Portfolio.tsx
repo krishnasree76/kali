@@ -22,8 +22,8 @@ const portfolioData = [
     category: "Wedding Haldis",
     items: [
       { title: "Wedding Groom Haldi", sub: "Groom Haldi", videoId: "YmGeIHgb7K4" },
-      // { title: "Bride Haldi", sub: "Bride Haldi", videoId: null },
-      // { title: "Couple Haldi", sub: "Couple Haldi", videoId: null },
+      { title: "Bride Haldi", sub: "Bride Haldi", videoId: null },
+      { title: "Couple Haldi", sub: "Couple Haldi", videoId: null },
     ],
   },
   {
@@ -31,14 +31,14 @@ const portfolioData = [
     items: [
       { title: "Half Saree Haldi", sub: "Half Saree Haldi", videoId: "i7SRRULgwtU" },
       { title: "Half Saree Song Shoot", sub: "Coming Soon", videoId: "K1J3clK1IM0" },
-      // { title: "Half Saree Functions", sub: "Coming Soon", videoId: null },
+      { title: "Half Saree Functions", sub: "Coming Soon", videoId: null },
     ],
   },
   {
     category: "Birthday",
     items: [
       { title: "Birthday Video", sub: "Birthday", videoId: "PNhRGh3TPlA" },
-      // { title: "Pre Birthday", sub: "Coming Soon", videoId: null },
+      { title: "Pre Birthday", sub: "Coming Soon", videoId: null },
     ],
   },
   {
